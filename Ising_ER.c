@@ -185,7 +185,7 @@ void iteration(int t_MAX, FILE *out)
     average += tanh(beta * h);
   }
 
-  fprintf(out,"%g %g %d\n", 1. / beta, average / N, t);
+  fprintf(out, "%g %g %d\n", 1. / beta, average / N, t);
 }
 
 int main(int argc, char *argv[])
@@ -230,10 +230,10 @@ int main(int argc, char *argv[])
 
   M = (int)(0.5 * c * N + 0.5);
 
-  fprintf(out,"# N = %u   c = %g   M = %d  seed = %u\n", N, c, M, myrand);
+  fprintf(out, "# N = %u   c = %g   M = %d  seed = %u\n", N, c, M, myrand);
   fflush(stdout);
 
-  fprintf(out,"# 1:T 2:m 3:t_convergence\n");
+  fprintf(out, "# 1:T 2:m 3:t_convergence\n");
 
   Init_Random();
 
@@ -246,8 +246,8 @@ int main(int argc, char *argv[])
   Tmax = 1.5 * Tc;
   for (T = dT; T <= Tmax; T += dT)
   {
-    beta = 1. / T;
     init_u(); // inizializzo ogni volta perche' voglio far vedere che sotto Tc BP sceglie in quale stato entrare
+    beta = 1. / T;
     iteration(nIter, out);
   }
 
